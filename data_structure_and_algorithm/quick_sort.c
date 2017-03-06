@@ -5,13 +5,15 @@ void quicksort(int *a, int l, int r) {
     int i, j, temp;
     int privot = a[l];
     j = l;
-    for (i = l; i <= r; i++) {
-        if (a[i] < privot) {
-            temp = a[j];
-            a[j] = a[i];
-            a[i] = a[j + 1];
-            a[j + 1] = temp;
-            j++;
+    if (l < r) {
+        for (i = l; i <= r; i++) {
+            if (a[i] < privot) {
+                temp = a[j];
+                a[j] = a[i];
+                a[i] = a[j + 1];
+                a[j + 1] = temp;
+                j++; 
+            }
         }
         quicksort(a, l, j - 1);
         quicksort(a, j + 1, r);
